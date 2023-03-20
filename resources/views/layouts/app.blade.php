@@ -10,9 +10,10 @@
 </head>
 <body>
 
-    @include('partials.navbar')
+    @include('partials.navbar',["categories" => $categories])
     <div class="container mt-5">
-    @yield('content')
+        @yield('content')
+        @include('partials.cards',["products" => $products])
     </div>
 </body>
 </html>

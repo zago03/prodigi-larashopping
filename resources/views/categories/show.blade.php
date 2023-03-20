@@ -3,7 +3,7 @@
 @section('head_title','Categoria')
 
 @section('content')
-Categoria
+<h4>{{$category->name}}</h4>
 
 
 

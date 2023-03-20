@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+       
     }
 
     /**
@@ -37,9 +37,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
+        $products=Product::where('category_id',$category->id)->get();
         $categories = Category::all();
-        $products = Product::orderBy('price','desc')->limit(3)->get();
-        return view('categories.show',compact("products","category"));
+        return view('categories.show',compact("products","categories","category"));
     }
 
     /**
