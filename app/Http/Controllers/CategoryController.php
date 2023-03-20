@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -12,8 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('name','asc')->get();
-        return view('categories.index', compact("categories"));
+        
     }
 
     /**
@@ -37,7 +37,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categories = Category::all();
+        $products = Product::orderBy('price','desc')->limit(3)->get();
+        return view('categories.show',compact("products","category"));
     }
 
     /**
